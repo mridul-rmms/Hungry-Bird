@@ -40,8 +40,8 @@ export default function Navbar({ ThemeToggle }: { ThemeToggle: () => React.React
 
   return (
     <>
-      <header className="sticky top-0 z-[60] border-b border-[var(--hb-line)]">
-        <div className="hb-glass">
+      <header className="sticky top-0 z-[60] border-b border-[var(--hb-line)] shadow-[0_2px_16px_-8px_rgba(31,23,16,0.18)]">
+        <div className="bg-[var(--hb-card)]">
           <div className="hb-container flex h-16 items-center gap-3 md:h-[72px]">
             {/* back (mobile) */}
             {view.name !== "home" && (
@@ -71,7 +71,7 @@ export default function Navbar({ ThemeToggle }: { ThemeToggle: () => React.React
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
                 placeholder="Search dishes, restaurants, cuisines…"
-                className="hb-input !rounded-full !py-2.5 pl-10 pr-4"
+                className="hb-input !rounded-full !py-2.5 !pl-11 !pr-4"
                 aria-label="Search dishes and restaurants"
               />
             </form>

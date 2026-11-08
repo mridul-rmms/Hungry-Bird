@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home page — design samples · Hungry Bird</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: system-ui, -apple-system, sans-serif; background:#101014; color:#f2f2f5; min-height:100vh; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 56px 32px 80px; }
+.kick { font-size:12px; letter-spacing:.28em; text-transform:uppercase; color:#8b8b98; font-weight:700; }
+h1 { font-size: 44px; letter-spacing:-.02em; margin: 14px 0 10px; }
+h1 span { background:linear-gradient(100deg,#ffb03a,#ff5a2a 55%,#e83a6f); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.sub { color:#a7a7b4; font-size:16px; line-height:1.65; max-width:640px; }
+.grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:44px; }
+.card { position:relative; border-radius:24px; overflow:hidden; border:1px solid rgba(255,255,255,.1); background:#17171d; text-decoration:none; color:inherit; display:block; transition:.25s; }
+.card:hover { transform:translateY(-6px); border-color:rgba(255,255,255,.28); box-shadow:0 30px 60px -24px rgba(0,0,0,.8); }
+.thumb { height:210px; position:relative; overflow:hidden; }
+.thumb iframe { width:1440px; height:900px; border:0; transform:scale(.32); transform-origin:0 0; pointer-events:none; position:absolute; left:0; top:0; border-radius:0; }
+.tA { background:linear-gradient(120deg,#171310,#241a12 55%,#2b1418); }
+.tB { background:linear-gradient(120deg,#eaf6e4,#f7fbee); }
+.tC { background:linear-gradient(120deg,#f2ede2,#faf7f0); }
+.tD { background:linear-gradient(120deg,#fff4e0,#ffe3ec 50%,#efe3ff); }
+.tag { position:absolute; left:16px; top:16px; background:rgba(0,0,0,.65); backdrop-filter:blur(8px); color:#fff; font-size:11px; font-weight:800; letter-spacing:.14em; padding:7px 14px; border-radius:999px; text-transform:uppercase; }
+.cbody { padding:22px 24px 24px; }
+.cbody h2 { font-size:21px; margin-bottom:7px; }
+.cbody p { color:#a7a7b4; font-size:14px; line-height:1.6; }
+.sw { display:flex; gap:7px; margin-top:14px; }
+.sw i { width:22px; height:22px; border-radius:7px; border:1px solid rgba(255,255,255,.18); }
+.open { position:absolute; right:20px; bottom:20px; background:#fff; color:#111; font-size:12.5px; font-weight:800; padding:10px 18px; border-radius:999px; opacity:0; transition:.2s; }
+.card:hover .open { opacity:1; }
+.note { margin-top:36px; border:1px dashed rgba(255,255,255,.2); border-radius:18px; padding:20px 24px; color:#a7a7b4; font-size:14px; line-height:1.7; }
+.note b { color:#f2f2f5; }
+</style></head>
+<body><div class="wrap">
+  <div class="kick">Hungry Bird · redesign exploration</div>
+  <h1>Pick a home page — <span>4 directions</span></h1>
+  <p class="sub">Four complete home-page concepts. Open any of them full-screen, click around the vibe, then tell me the one you like (or mix: “A's dark theme with C's typography”). Whichever you pick, I'll rebuild the real app home page in that style.</p>
+
+  <div class="grid">
+    <a class="card" href="a-midnight-ember.html">
+      <div class="thumb tA"><iframe src="a-midnight-ember.html" scrolling="no" tabindex="-1" title=""></iframe><span class="tag">Sample A</span></div>
+      <div class="cbody">
+        <h2>🌙 Midnight Ember — dark premium</h2>
+        <p>Near-black canvas, ember-orange glow, glassy cards, serif italics. Feels like a late-night chef's table. Bold and moody.</p>
+        <div class="sw"><i style="background:#0b0a08"></i><i style="background:#ff5a2a"></i><i style="background:#f2c14e"></i><i style="background:#e83a6f"></i></div>
+      </div>
+      <span class="open">Open sample →</span>
+    </a>
+
+    <a class="card" href="b-fresh-market.html">
+      <div class="thumb tB"><iframe src="b-fresh-market.html" scrolling="no" tabindex="-1" title=""></iframe><span class="tag">Sample B</span></div>
+      <div class="cbody">
+        <h2>🌿 Fresh Market — bright &amp; friendly</h2>
+        <p>Crisp green + lime + sunshine yellow, chunky rounded cards, sticker badges. Healthy, energetic, neighbourhood-market feel.</p>
+        <div class="sw"><i style="background:#166534"></i><i style="background:#84cc16"></i><i style="background:#facc15"></i><i style="background:#ff6b4a"></i></div>
+      </div>
+      <span class="open">Open sample →</span>
+    </a>
+
+    <a class="card" href="c-bold-editorial.html">
+      <div class="thumb tC"><iframe src="c-bold-editorial.html" scrolling="no" tabindex="-1" title=""></iframe><span class="tag">Sample C</span></div>
+      <div class="cbody">
+        <h2>📰 Bold Editorial — loud type, hard grid</h2>
+        <p>Swiss-poster energy: massive uppercase type, black rules, red-orange blocks, the menu as a magazine index. Design-forward.</p>
+        <div class="sw"><i style="background:#16130e"></i><i style="background:#e4572e"></i><i style="background:#f2ede2"></i><i style="background:#faf7f0"></i></div>
+      </div>
+      <span class="open">Open sample →</span>
+    </a>
+
+    <a class="card" href="d-candy-pop.html">
+      <div class="thumb tD"><iframe src="d-candy-pop.html" scrolling="no" tabindex="-1" title=""></iframe><span class="tag">Sample D</span></div>
+      <div class="cbody">
+        <h2>🍬 Candy Pop — playful gradients</h2>
+        <p>Peach-pink-lilac gradients, pill navbar, bouncy cards, colourful vibe chips. Fun, youthful, app-like — Swiggy-meets-Duolingo.</p>
+        <div class="sw"><i style="background:#ff5e78"></i><i style="background:#7c3aed"></i><i style="background:#2dd4bf"></i><i style="background:#ffb347"></i></div>
+      </div>
+      <span class="open">Open sample →</span>
+    </a>
+  </div>
+
+  <div class="note"><b>How to choose:</b> open a sample, scroll it, feel it. Then just tell me a letter — “I like B”, or a mix like “A but keep the green CTAs”. The chosen direction gets applied to the real app (all 9 pages, light + dark mode), not just the home page mock.</div>
+</div></body></html>

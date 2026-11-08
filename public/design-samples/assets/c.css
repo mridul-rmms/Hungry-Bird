@@ -1,0 +1,74 @@
+/* Sample C — Bold Editorial · Swiss typographic */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #f2ede2; --ink: #16130e; --ink2: #5d5546; --ink3: #948a75;
+  --line: #16130e; --red: #e4572e; --paper: #faf7f0;
+}
+body { background: var(--bg); color: var(--ink); font-family: "Space Grotesk", system-ui, sans-serif; overflow-x: hidden; }
+.wrap { max-width: 1280px; margin: 0 auto; padding: 0 36px; }
+
+nav { position: sticky; top: 0; z-index: 50; background: var(--bg); border-bottom: 2.5px solid var(--line); }
+.navin { display: flex; align-items: stretch; height: 78px; }
+.navcell { display: flex; align-items: center; padding: 0 22px; border-right: 2.5px solid var(--line); font-size: 13.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
+.navcell:first-child { padding-left: 0; }
+.navcell:hover { background: var(--ink); color: var(--bg); }
+.logo { font-family: "Archivo Black", sans-serif; font-size: 21px; letter-spacing: -.02em; text-transform: uppercase; gap: 12px; }
+.logomark { width: 36px; height: 36px; background: var(--red); border-radius: 0; display: grid; place-items: center; }
+.navsearch { margin-left: auto; border-right: 0; color: var(--ink3); font-weight: 600; }
+.navcta { display: flex; gap: 0; border-right: 0; }
+.cartbtn { background: var(--ink); color: var(--bg); padding: 0 22px; display: flex; align-items: center; font-weight: 800; font-size: 13.5px; letter-spacing: .06em; cursor: pointer; }
+.cartbtn:hover { background: var(--red); }
+
+.hero { border-bottom: 2.5px solid var(--line); }
+.herogrid { display: grid; grid-template-columns: 1.15fr .85fr; }
+.heroleft { padding: 64px 44px 64px 0; border-right: 2.5px solid var(--line); }
+.kicker { display: flex; justify-content: space-between; font-size: 12px; letter-spacing: .28em; text-transform: uppercase; color: var(--ink2); font-weight: 700; border-bottom: 2.5px solid var(--line); padding-bottom: 14px; }
+h1 { font-family: "Archivo Black", sans-serif; font-size: 92px; line-height: .96; letter-spacing: -.03em; text-transform: uppercase; margin: 36px 0 0; }
+h1 .rd { color: var(--red); }
+h1 .outline { color: transparent; -webkit-text-stroke: 2.5px var(--ink); }
+.herop { margin-top: 30px; font-size: 16px; line-height: 1.7; color: var(--ink2); max-width: 470px; font-weight: 500; }
+.herocta { margin-top: 34px; display: flex; gap: 0; }
+.btn-main { background: var(--red); color: #fff; font-family: "Archivo Black", sans-serif; font-size: 15px; letter-spacing: .04em; text-transform: uppercase; padding: 18px 34px; border: 2.5px solid var(--line); cursor: pointer; box-shadow: 6px 6px 0 var(--ink); }
+.btn-main:active { transform: translate(3px,3px); box-shadow: 3px 3px 0 var(--ink); }
+.btn-sec { background: var(--paper); font-weight: 700; font-size: 14px; letter-spacing: .06em; text-transform: uppercase; padding: 18px 28px; border: 2.5px solid var(--line); border-left: 0; cursor: pointer; }
+.herostats { display: grid; grid-template-columns: repeat(3,1fr); margin-top: 46px; border: 2.5px solid var(--line); }
+.hstat { padding: 18px 20px; border-right: 2.5px solid var(--line); }
+.hstat:last-child { border-right: 0; }
+.hstat b { font-family: "Archivo Black", sans-serif; font-size: 30px; display: block; letter-spacing: -.02em; }
+.hstat span { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink3); font-weight: 700; }
+
+.heroright { position: relative; background: var(--red); }
+.heroright img { width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; filter: contrast(1.06) saturate(1.05); opacity: .94; min-height: 560px; }
+.ptag { position: absolute; left: 26px; bottom: 26px; background: var(--paper); border: 2.5px solid var(--line); padding: 12px 18px; font-size: 12.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; box-shadow: 6px 6px 0 var(--ink); }
+.ptag small { display: block; font-size: 10.5px; color: var(--ink2); letter-spacing: .06em; margin-top: 3px; font-weight: 700; }
+
+.ticker { border-bottom: 2.5px solid var(--line); background: var(--ink); color: var(--bg); overflow: hidden; white-space: nowrap; padding: 12px 0; font-family: "Archivo Black", sans-serif; font-size: 13px; letter-spacing: .22em; text-transform: uppercase; }
+.ticker span { margin: 0 26px; }
+.ticker .rd { color: #ffb69e; }
+
+section { padding: 72px 0; border-bottom: 2.5px solid var(--line); }
+.sechead { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 34px; }
+h2 { font-family: "Archivo Black", sans-serif; font-size: 44px; letter-spacing: -.02em; text-transform: uppercase; }
+h2 sup { font-family: "Space Grotesk", sans-serif; font-size: 15px; color: var(--red); letter-spacing: .1em; margin-left: 8px; }
+.sechead a { font-size: 13px; letter-spacing: .16em; text-transform: uppercase; font-weight: 800; color: var(--ink2); cursor: pointer; }
+.sechead a:hover { color: var(--red); }
+
+.cats { display: grid; grid-template-columns: repeat(3,1fr); border: 2.5px solid var(--line); background: var(--line); gap: 2.5px; }
+.cat { background: var(--paper); padding: 26px 26px 22px; cursor: pointer; display: flex; align-items: center; gap: 18px; transition: background .15s; }
+.cat:hover { background: var(--ink); color: var(--bg); }
+.cat .num { font-family: "Archivo Black", sans-serif; font-size: 15px; color: var(--red); }
+.cat b { font-family: "Archivo Black", sans-serif; font-size: 19px; letter-spacing: .01em; text-transform: uppercase; display: block; }
+.cat span { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; opacity: .6; font-weight: 700; }
+.cat .arr { margin-left: auto; font-size: 20px; }
+
+.menurow { display: grid; grid-template-columns: 70px 1fr 1fr 130px 120px; align-items: center; gap: 20px; padding: 20px 6px; border-bottom: 2.5px solid var(--line); cursor: pointer; }
+.menurow:first-of-type { border-top: 2.5px solid var(--line); }
+.menurow:hover { background: var(--paper); }
+.menurow .idx { font-family: "Archivo Black", sans-serif; font-size: 17px; color: var(--red); }
+.menurow h3 { font-family: "Archivo Black", sans-serif; font-size: 24px; letter-spacing: -.01em; text-transform: uppercase; }
+.menurow .tags { font-size: 13px; color: var(--ink2); font-weight: 600; }
+.menurow .mrate { font-weight: 800; font-size: 14px; }
+.menurow .mtime { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink3); font-weight: 700; text-align: right; }
+
+footer { padding: 30px 0 40px; font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink2); font-weight: 700; display: flex; justify-content: space-between; }
+footer a { color: var(--red); }

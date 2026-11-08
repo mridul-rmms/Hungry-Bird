@@ -99,7 +99,7 @@ export default function HomeView() {
           >
             <div className="relative flex-1">
               <Search size={16} className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[var(--hb-ink3)]" />
-              <input name="q" placeholder="Craving something? Try “biryani”…" className="hb-input !rounded-2xl !py-3.5 pl-11" aria-label="Search food" />
+              <input name="q" placeholder="Craving something? Try “biryani”…" className="hb-input !rounded-2xl !py-3.5 !pl-12" aria-label="Search food" />
             </div>
             <button type="submit" className="hb-btn hb-btn-basil h-[50px] rounded-2xl px-5">Find food</button>
           </form>

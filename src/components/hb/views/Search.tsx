@@ -87,7 +87,7 @@ export default function SearchView() {
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder="Search dishes, kitchens, cravings…"
-              className="hb-input !rounded-2xl !py-3.5 pl-11 pr-10"
+              className="hb-input !rounded-2xl !py-3.5 !pl-12 !pr-10"
               aria-label="Search dishes and kitchens"
             />
             {q && (

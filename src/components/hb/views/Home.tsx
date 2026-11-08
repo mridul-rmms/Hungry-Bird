@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Flame, Search, Timer, BadgeCheck, ChevronRight } from "lucide-react";
+import { ArrowRight, Search, Timer, BadgeCheck, ChevronRight } from "lucide-react";
 import { useHB } from "@/lib/store";
 import { useData } from "../data";
 import { Meta, SectionHead, SkelCard, Stars } from "../ui";
@@ -43,7 +43,7 @@ export function RestaurantCard({ r, wide = false }: { r: ReturnType<typeof useDa
         <img src={r.image} alt={r.name} className="h-full w-full object-cover" loading="lazy" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
         {r.promoted && (
-          <span className="absolute left-3 top-3 rounded-full bg-[var(--hb-card)]/90 px-2.5 py-1 text-[10.5px] font-black uppercase tracking-wide text-[var(--hb-accent)] backdrop-blur">
+          <span className="absolute left-3 top-3 rounded-full bg-[linear-gradient(120deg,var(--hb-ember),#ff8a5c)] px-2.5 py-1 text-[10.5px] font-black uppercase tracking-wide text-white shadow-[0_8px_18px_-8px_var(--hb-glow)]">
             Promoted
           </span>
         )}
@@ -82,11 +82,15 @@ export default function HomeView() {
       {/* ---------------- HERO ---------------- */}
       <section className="grid items-center gap-10 lg:grid-cols-[1.05fr_.95fr]" aria-label="Welcome">
         <div>
-          <p className="hb-eyebrow mb-3 flex items-center gap-2 text-[var(--hb-accent)]">
-            <Flame size={13} /> Delivering across Koramangala · 7 AM – 3 AM
+          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--hb-line)] bg-[var(--hb-card)] px-4 py-2 text-[11.5px] font-extrabold uppercase tracking-[0.12em] text-[var(--hb-ink2)] shadow-[0_10px_24px_-14px_var(--hb-glow)]">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute h-full w-full animate-ping rounded-full bg-[var(--hb-basil)] opacity-70" />
+              <span className="h-2 w-2 rounded-full bg-[var(--hb-basil)]" />
+            </span>
+            Delivering across Koramangala · 7 AM – 3 AM
           </p>
-          <h1 className="font-display text-[clamp(34px,5.4vw,58px)] font-semibold leading-[1.04] tracking-[-0.02em]">
-            Food that matches<br />your <em className="hb-serif-i hb-grad-text">mood</em>, not just your address.
+          <h1 className="text-[clamp(34px,5.4vw,58px)] font-extrabold leading-[1.05] tracking-[-0.03em]">
+            Food that matches<br />your <span className="hb-grad-text">mood</span>, not just your address.
           </h1>
           <p className="mt-4 max-w-lg text-[15.5px] leading-relaxed text-[var(--hb-ink2)]">
             Hungry Bird learns the vibe — comfort, fire, midnight or green — then brings the kitchen to you. Customise every plate, watch every step home.
@@ -101,7 +105,7 @@ export default function HomeView() {
               <Search size={16} className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[var(--hb-ink3)]" />
               <input name="q" placeholder="Craving something? Try “biryani”…" className="hb-input !rounded-2xl !py-3.5 !pl-12" aria-label="Search food" />
             </div>
-            <button type="submit" className="hb-btn hb-btn-basil h-[50px] rounded-2xl px-5">Find food</button>
+            <button type="submit" className="hb-btn hb-btn-primary h-[50px] rounded-full px-6">Find my match →</button>
           </form>
 
           <div className="mt-7 flex flex-wrap gap-2" role="group" aria-label="Pick a mood">

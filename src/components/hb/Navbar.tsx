@@ -7,7 +7,7 @@ import { useHB, cartCount } from "@/lib/store";
 function Logo({ onClick }: { onClick: () => void }) {
   return (
     <button onClick={onClick} className="hb-press flex items-center gap-2.5" aria-label="Hungry Bird home">
-      <span className="grid h-9 w-9 place-items-center rounded-[13px] bg-[var(--hb-basil)] text-white shadow-[0_6px_16px_-6px_rgba(12,107,88,.6)]">
+      <span className="grid h-9 w-9 place-items-center rounded-[13px] bg-[linear-gradient(135deg,var(--hb-ember),var(--hb-accent-hi))] text-white shadow-[0_8px_20px_-6px_var(--hb-glow)]">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden>
           <path d="M3 12c4-7 12-9 18-7-1.5 3-4 5-7 5.5 3 .5 5 2 6 4.5-4.5 2-9.5 1.5-12.5-1L3 12z" fill="currentColor" />
           <circle cx="16.2" cy="8.2" r="1.15" fill="var(--hb-basil)" />
@@ -40,9 +40,9 @@ export default function Navbar({ ThemeToggle }: { ThemeToggle: () => React.React
 
   return (
     <>
-      <header className="sticky top-0 z-[60] border-b border-[var(--hb-line)] shadow-[0_2px_16px_-8px_rgba(31,23,16,0.18)]">
-        <div className="bg-[var(--hb-card)]">
-          <div className="hb-container flex h-16 items-center gap-3 md:h-[72px]">
+      <header className="relative z-[60]">
+        <div className="hb-container pt-4 md:pt-5">
+          <div className="hb-navpill flex h-16 items-center gap-3 px-4 md:h-[72px] md:px-6">
             {/* back (mobile) */}
             {view.name !== "home" && (
               <button onClick={back} className="hb-tap hb-press -ml-1 grid h-9 w-9 shrink-0 place-items-center rounded-xl border border-[var(--hb-line)] bg-[var(--hb-card)] md:hidden" aria-label="Go back">

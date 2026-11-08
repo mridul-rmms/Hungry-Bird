@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Hungry Bird — Mobile UI Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 19Z"/><path d="M9.5 20.5v-6h5v6"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-3.8-3.8"/></symbol>
+<symbol id="i-bag" viewBox="0 0 24 24"><path d="M5.5 8h13l-1 12h-11Z"/><path d="M9 10.5V6.8a3 3 0 0 1 6 0v3.7"/></symbol>
+<symbol id="i-receipt" viewBox="0 0 24 24"><path d="M6 3.5h12V21l-2.4-1.6L13.2 21l-2.4-1.6L8.4 21 6 19.4Z"/><path d="M9.5 8.5h5M9.5 12h5"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.2" r="3.7"/><path d="M4.8 20c1.4-3.4 4-5 7.2-5s5.8 1.6 7.2 5"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 2h-15Z"/><path d="M10 21a2.2 2.2 0 0 0 4 0"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s6.5-5.6 6.5-10.5a6.5 6.5 0 1 0-13 0C5.5 15.4 12 21 12 21Z"/><circle cx="12" cy="10.3" r="2.3"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3.6 2.5 5.2 5.7.8-4.1 4 1 5.7-5.1-2.7-5.1 2.7 1-5.7-4.1-4 5.7-.8Z"/></symbol>
+<symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3s5.5 4.2 5.5 9.5a5.5 5.5 0 0 1-11 0C6.5 9 9 7.5 9 4.5c1.2.8 2 2 2 3.4C12.3 6.5 12 4.5 12 3Z"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.7-7.5-10A4.3 4.3 0 0 1 12 7.3 4.3 4.3 0 0 1 19.5 10c0 5.3-7.5 10-7.5 10Z"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5.5v13M5.5 12h13"/></symbol>
+<symbol id="i-minus" viewBox="0 0 24 24"><path d="M5.5 12h13"/></symbol>
+<symbol id="i-chev-l" viewBox="0 0 24 24"><path d="M14.5 5.5 8 12l6.5 6.5"/></symbol>
+<symbol id="i-chev-r" viewBox="0 0 24 24"><path d="M9.5 5.5 16 12l-6.5 6.5"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M7.5 4h3l1.2 4-2 1.6a12 12 0 0 0 4.7 4.7l1.6-2 4 1.2v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 5.5 6.2 2 2 0 0 1 7.5 4Z"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 11.5a7.5 7.5 0 0 1-11 6.6L4 19.5l1.4-4.9A7.5 7.5 0 1 1 20 11.5Z"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7.5V12l3 2"/></symbol>
+<symbol id="i-wallet" viewBox="0 0 24 24"><rect x="4" y="6.5" width="16" height="13" rx="2.5"/><path d="M4 10h16M15.5 15h1.5"/></symbol>
+<symbol id="i-card" viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="13" rx="2.5"/><path d="M4 10h16M7.5 15h4"/></symbol>
+<symbol id="i-cash" viewBox="0 0 24 24"><rect x="3.5" y="7" width="17" height="10" rx="2"/><circle cx="12" cy="12" r="2.6"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.6 5.6 7 7m10 10 1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M19.5 13.5A8 8 0 0 1 10.5 4.5a8 8 0 1 0 9 9Z"/></symbol>
+<symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3.5 13.8 10 20 12l-6.2 2L12 20.5 10.2 14 4 12l6.2-2Z"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+<symbol id="i-gps" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2.5V6m0 12v3.5M2.5 12H6m12 0h3.5"/><circle cx="12" cy="12" r="7.5"/></symbol>
+<symbol id="i-cam" viewBox="0 0 24 24"><path d="M4 8.5h3l1.5-2h7L17 8.5h3a1.5 1.5 0 0 1 1.5 1.5v8A1.5 1.5 0 0 1 20 19.5H4A1.5 1.5 0 0 1 2.5 18v-8A1.5 1.5 0 0 1 4 8.5Z"/><circle cx="12" cy="13.5" r="3.2"/></symbol>
+<symbol id="i-gift" viewBox="0 0 24 24"><rect x="4" y="9" width="16" height="11" rx="1.8"/><path d="M3.5 9h17M12 9v11M12 9s-1-4-4-4a2 2 0 0 0 0 4m4 0s1-4 4-4a2 2 0 0 1 0 4"/></symbol>
+<symbol id="i-bike" viewBox="0 0 24 24"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M9 17h6l-3-8h-2m2 0 1.5-3H16"/><path d="M12 9l4 8"/></symbol>
+<symbol id="i-fb" viewBox="0 0 24 24"><path d="M12 21s-7.5-5.8-7.5-11A4.5 4.5 0 0 1 12 6.9 4.5 4.5 0 0 1 19.5 10c0 5.2-7.5 11-7.5 11Z"/><path d="M12 13.5v-3M10.5 12h3"/></symbol>
+</defs></svg>
+
+<div class="stage">
+  <div class="ambient a1"></div><div class="ambient a2"></div><div class="ambient a3"></div>
+
+  <div class="device">
+    <div class="phone" id="phone" data-t="auto">
+
+      <div class="statusbar">
+        <span class="sb-time" id="sbTime">9:41</span>
+        <span class="sb-island"></span>
+        <span class="sb-icons">
+          <svg viewBox="0 0 18 12" class="sb-sig"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="4.5" width="3" height="7.5" rx="1"/><rect x="10" y="2" width="3" height="10" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1" opacity=".35"/></svg>
+          <svg viewBox="0 0 16 12" class="sb-wifi"><path d="M8 10.8 5.4 8.2a3.7 3.7 0 0 1 5.2 0Z"/><path d="M3.2 6a6.8 6.8 0 0 1 9.6 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M.8 3.6a10.2 10.2 0 0 1 14.4 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 25 12" class="sb-bat"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="15" height="8" rx="2"/><path d="M23 4v4a2.2 2.2 0 0 0 0-4Z" opacity=".4"/></svg>
+        </span>
+      </div>
+
+      <main id="screens">
+
+      <!-- ============ ONBOARDING ============ -->
+      <section class="screen" id="s-onb" data-nav="hide">
+        <div class="onb-track" id="onbTrack">
+          <div class="onb-slide">
+            <div class="onb-art"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=760&q=75" alt="Plated gourmet dish" onerror="this.classList.add('img-fail')"></div>
+            <div class="onb-copy">
+              <p class="eyebrow">Hungry Bird</p>
+              <h1>Food you can <em>feel.</em></h1>
+              <p class="sub">Macro-shot menus shot like cinema. Every dish, exactly as it arrives.</p>
+            </div>
+          </div>
+          <div class="onb-slide">
+            <div class="onb-art"><img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=760&q=75" alt="Burger with fries" onerror="this.classList.add('img-fail')"></div>
+            <div class="onb-copy">
+              <p class="eyebrow">Time-aware</p>
+              <h1>Cooked around <em>your clock.</em></h1>
+              <p class="sub">Sunrise warmth at 7 AM. Neon energy at midnight. The app matches your hour.</p>
+            </div>
+          </div>
+          <div class="onb-slide">
+            <div class="onb-art"><img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=760&q=75" alt="Colorful bowl" onerror="this.classList.add('img-fail')"></div>
+            <div class="onb-copy">
+              <p class="eyebrow">Live tracking</p>
+              <h1>Track it like a <em>movie.</em></h1>
+              <p class="sub">A glowing route across the city, and your rider, live on the map.</p>
+            </div>
+          </div>
+        </div>
+        <div class="onb-foot">
+          <div class="dots" id="onbDots"><i class="on"></i><i></i><i></i></div>
+          <button class="btn btn-primary btn-lg" data-go="s-auth">Start hungry <svg class="ic"><use href="#i-chev-r"/></svg></button>
+          <button class="link-dim" data-go="s-home">Skip for now</button>
+        </div>
+      </section>
+
+      <!-- ============ AUTH ============ -->
+      <section class="screen" id="s-auth" data-nav="hide">
+        <button class="iconbtn ghost abs-tl" data-go="s-onb" aria-label="Back"><svg class="ic flip"><use href="#i-chev-r"/></svg></button>
+        <div class="auth-wrap">
+          <div class="brandmark"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" class="bm-ring"/><path class="bm-body" d="M14 30c0-8 5-14 11-14 4.5 0 7 2.6 7 6 0 2.6-1.6 4-3.6 4.6l-8 2.4c-1.6.5-2.4 1.6-2.4 3 0 2 1.8 3.5 4.5 3.5 3 0 5.4-1.4 7-3.5" fill="none" stroke-linecap="round"/><circle class="bm-eye" cx="28.5" cy="20.5" r="1.6"/></svg></div>
+          <h1 class="auth-title">Hungry <em>Bird</em></h1>
+          <p class="sub center">One tap from craving<br>to doorstep.</p>
+          <label class="field phone-field">
+            <span class="cc">+91</span>
+            <input type="tel" inputmode="numeric" placeholder="98765 43210" aria-label="Phone number">
+          </label>
+          <button class="btn btn-primary btn-lg" data-go="s-otp">Continue</button>
+          <div class="or"><span>or continue with</span></div>
+          <div class="social-row">
+            <button class="btn btn-soft">Google</button>
+            <button class="btn btn-soft">Apple</button>
+          </div>
+          <p class="fine">By continuing you agree to our Terms & Privacy Policy.</p>
+        </div>
+      </section>
+
+      <!-- ============ OTP ============ -->
+      <section class="screen" id="s-otp" data-nav="hide">
+        <button class="iconbtn ghost abs-tl" data-go="s-auth" aria-label="Back"><svg class="ic flip"><use href="#i-chev-r"/></svg></button>
+        <div class="auth-wrap">
+          <h1 class="h2">Enter the code</h1>
+          <p class="sub">Sent to +91 98••• ••210 · <button class="link">Edit</button></p>
+          <div class="otp-row" id="otpRow">
+            <input maxlength="1" inputmode="numeric" aria-label="Digit 1"><input maxlength="1" inputmode="numeric" aria-label="Digit 2"><input maxlength="1" inputmode="numeric" aria-label="Digit 3"><input maxlength="1" inputmode="numeric" aria-label="Digit 4">
+          </div>
+          <p class="fine center">Resend in <span id="otpTimer">24</span>s · <button class="link" id="otpResend">Resend OTP</button></p>
+          <button class="btn btn-primary btn-lg" id="otpVerify" data-go="s-loc" disabled>Verify & continue</button>
+          <div class="protect-note glass"><svg class="ic"><use href="#i-check"/></svg> Verified in seconds. No passwords, ever.</div>
+        </div>
+      </section>
+
+      <!-- ============ LOCATION ============ -->
+      <section class="screen" id="s-loc" data-nav="hide">
+        <div class="loc-map">
+          <svg viewBox="0 0 390 300" preserveAspectRatio="xMidYMid slice" class="streets">
+            <path d="M-20 80 H410 M-20 170 H410 M-20 250 H410 M70 -20 V320 M180 -20 V320 M300 -20 V320" class="st-minor"/>
+            <path d="M-20 125 C 80 100, 200 190, 410 150 M120 -20 C 140 120, 60 240, 160 320" class="st-major"/>
+            <path d="M60 250 C 150 220, 240 260, 330 210" class="st-route"/>
+          </svg>
+          <div class="loc-pin"><span class="pulse"></span><svg class="ic"><use href="#i-pin"/></svg></div>
+          <button class="iconbtn ghost abs-tl" data-go="s-otp" aria-label="Back"><svg class="ic flip"><use href="#i-chev-r"/></svg></button>
+        </div>
+        <div class="loc-sheet">
+          <div class="grabber"></div>
+          <h1 class="h3">Where should we deliver?</h1>
+          <label class="field search-field"><svg class="ic"><use href="#i-search"/></svg><input placeholder="Search area, apartment, street…"></label>
+          <div class="chip-row">
+            <button class="chip chip-active"><svg class="ic"><use href="#i-home"/></svg> Home</button>
+            <button class="chip"><svg class="ic"><use href="#i-bag"/></svg> Work</button>
+            <button class="chip"><svg class="ic"><use href="#i-star"/></svg> Gym</button>
+          </div>
+          <div class="loc-list">
+            <button class="loc-item" data-go="s-home"><svg class="ic"><use href="#i-home"/></svg><span><strong>Home</strong><small>4th Block, Koramangala 560034</small></span><svg class="ic dim"><use href="#i-chev-r"/></svg></button>
+            <button class="loc-item"><svg class="ic"><use href="#i-clock"/></svg><span><strong>Recent</strong><small>Prestige Towers, Indiranagar</small></span><svg class="ic dim"><use href="#i-chev-r"/></svg></button>
+          </div>
+          <button class="btn btn-primary btn-lg" data-go="s-home"><svg class="ic"><use href="#i-gps"/></svg> Use current location</button>
+        </div>
+      </section>
+
+      <!-- ============ HOME ============ -->
+      <section class="screen" id="s-home">
+        <header class="home-head">
+          <button class="loc-chip glass" data-go="s-loc">
+            <svg class="ic brand"><use href="#i-pin"/></svg>
+            <span><small>Deliver to</small><strong>Home · Koramangala</strong></span>
+            <svg class="ic dim"><use href="#i-chev-r"/></svg>
+          </button>
+          <div class="head-actions">
+            <button class="iconbtn glass" id="themeCycle" aria-label="Switch theme"><svg class="ic"><use href="#i-moon"/></svg></button>
+            <button class="iconbtn glass" data-go="s-notifs" aria-label="Notifications"><svg class="ic"><use href="#i-bell"/></svg><i class="dot-badge"></i></button>
+          </div>
+        </header>
+
+        <div class="home-scroll" id="homeScroll">
+          <div class="greet-row">
+            <h1 class="greet" id="greetText">Good evening, <em>Aarav</em></h1>
+            <p class="greet-sub" id="greetSub">Golden hour cravings? We're glowing.</p>
+          </div>
+
+          <!-- Mood wheel -->
+          <div class="mood-dial" id="moodDial">
+            <button class="mood-c enter" data-mood="comfort"><span>🛋️</span>Comfort</button>
+            <button class="mood-c spicy" data-mood="spicy"><span>🌶️</span>Spicy</button>
+            <button class="mood-c late" data-mood="late"><span>🌙</span>Late-night</button>
+            <button class="mood-c healthy" data-mood="healthy"><span>🥗</span>Healthy</button>
+            <button class="mood-c party" data-mood="celebration"><span>🎉</span>Celebration</button>
+            <button class="mood-c quick" data-mood="quick"><span>⚡</span>Quick bite</button>
+            <button class="mood-center soft" id="moodCenter" aria-label="Pick a mood"><span id="moodFace">🍽️</span><b id="moodName">Feeling…?</b></button>
+          </div>
+
+          <!-- Hero dish -->
+          <article class="hero-card" id="heroCard" data-go="s-rest">
+            <div class="hero-media" id="heroMedia">
+              <img id="heroImg" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=860&q=75" alt="Signature grilled skewers" onerror="this.classList.add('img-fail')">
+              <span class="hero-eta glass"><svg class="ic"><use href="#i-clock"/></svg> 25 min</span>
+              <span class="hero-tag" id="heroTag">Chef's fire pick</span>
+            </div>
+            <div class="hero-body">
+              <div>
+                <h2 id="heroName">Smoked Ember Skewers</h2>
+                <p id="heroMeta">Ember & Smoke · 1.2 km · <span class="rate"><svg class="ic"><use href="#i-star"/></svg>4.8</span></p>
+              </div>
+              <div class="hero-cta"><small>from</small><b id="heroPrice">₹289</b></div>
+            </div>
+          </article>
+
+          <div class="offer-strip glass" data-go="s-rewards">
+            <svg class="ic brand"><use href="#i-gift"/></svg>
+            <span><strong>HUNGRY20</strong> — 20% off your first feast</span>
+            <svg class="ic dim"><use href="#i-chev-r"/></svg>
+          </div>
+
+          <div class="sec-head"><h3 id="feedTitle">Nearby, blazing hot</h3><button class="link">See all</button></div>
+          <div class="hscroll" id="restRow">
+            <article class="rest-card rv" data-go="s-rest">
+              <div class="rest-img"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=520&q=70" alt="BBQ ribs platter" onerror="this.classList.add('img-fail')"><span class="pill-time">25 min</span></div>
+              <div class="rest-meta"><b>Ember & Smoke</b><span class="rate"><svg class="ic"><use href="#i-star"/></svg>4.8 · BBQ · ₹₹₹</span></div>
+            </article>
+            <article class="rest-card rv" data-go="s-rest">
+              <div class="rest-img"><img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?auto=format&fit=crop&w=520&q=70" alt="Hyderabadi biryani" onerror="this.classList.add('img-fail')"><span class="pill-time">32 min</span></div>
+              <div class="rest-meta"><b>Dakshin Spoon</b><span class="rate"><svg class="ic"><use href="#i-star"/></svg>4.7 · Biryani · ₹₹</span></div>
+            </article>
+            <article class="rest-card rv" data-go="s-rest">
+              <div class="rest-img"><img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=520&q=70" alt="Wok noodles" onerror="this.classList.add('img-fail')"><span class="pill-time">18 min</span></div>
+              <div class="rest-meta"><b>Neon Wok</b><span class="rate"><svg class="ic"><use href="#i-star"/></svg>4.6 · Asian · ₹₹</span></div>
+            </article>
+            <article class="rest-card rv" data-go="s-rest">
+              <div class="rest-img"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=520&q=70" alt="Fresh salad bowl" onerror="this.classList.add('img-fail')"><span class="pill-time">20 min</span></div>
+              <div class="rest-meta"><b>The Daily Bowl</b><span class="rate"><svg class="ic"><use href="#i-star"/></svg>4.9 · Healthy · ₹₹</span></div>
+            </article>
+          </div>
+
+          <div class="sec-head"><h3>Your usuals</h3><button class="link">History</button></div>
+          <div class="usuals">
+            <button class="usual-row rv" data-go="s-dish">
+              <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=200&q=70" alt="Butter chicken" onerror="this.classList.add('img-fail')">
+              <span><b>Butter Chicken · Regular</b><small>Dakshin Spoon · ordered 6×</small></span>
+              <b class="price">₹329</b>
+              <i class="add-mini" data-add data-name="Butter Chicken" data-price="329" role="button" aria-label="Add to plate"><svg class="ic"><use href="#i-plus"/></svg></i>
+            </button>
+            <button class="usual-row rv" data-go="s-dish">
+              <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=200&q=70" alt="Buttermilk pancakes" onerror="this.classList.add('img-fail')">
+              <span><b>Morning Stack</b><small>Mithai Studio · ordered 3×</small></span>
+              <b class="price">₹199</b>
+              <i class="add-mini" data-add data-name="Morning Stack" data-price="199" role="button" aria-label="Add to plate"><svg class="ic"><use href="#i-plus"/></svg></i>
+            </button>
+          </div>
+          <div class="tail-space"></div>
+        </div>
+      </section>
+
+      <!-- ============ SEARCH ============ -->
+      <section class="screen" id="s-search">
+        <header class="pg-head">
+          <h1 class="h3">Search</h1>
+        </header>
+        <label class="field search-field big"><svg class="ic"><use href="#i-search"/></svg><input id="searchInput" placeholder="Dishes, kitchens, cravings…"><button class="iconbtn soft sm" aria-label="Filters"><svg class="ic"><use href="#i-spark"/></svg></button></label>
+        <div class="chip-row wrap" id="trendChips">
+          <button class="chip chip-active">🔥 Trending</button>
+          <button class="chip">🌙 Late-night</button>
+          <button class="chip">⚡ Under 30 min</button>
+          <button class="chip">🥗 Healthy</button>
+          <button class="chip">₹ Value</button>
+        </div>
+        <div class="sec-head"><h3>Recent</h3></div>
+        <div class="loc-list tight">
+          <button class="loc-item"><svg class="ic dim"><use href="#i-clock"/></svg><span><strong>Truffle burger</strong><small>4 results nearby</small></span><svg class="ic dim"><use href="#i-chev-r"/></svg></button>
+          <button class="loc-item"><svg class="ic dim"><use href="#i-clock"/></svg><span><strong>Momos, spicy</strong><small>7 results nearby</small></span><svg class="ic dim"><use href="#i-chev-r"/></svg></button>
+        </div>
+        <div class="sec-head"><h3 id="searchTitle">Trending near you</h3></div>
+        <div class="grid2" id="searchGrid">
+          <article class="dish-card rv" data-go="s-dish">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=480&q=70" alt="Smash burger" onerror="this.classList.add('img-fail')">
+            <b>Double Smash Burger</b><span class="rate"><svg class="ic"><use href="#i-star"/></svg>4.9 · 22 min</span><em>₹249</em>
+          </article>
+          <article class="dish-card rv" data-go="s-dish">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=480&q=70" alt="Margherita pizza" onerror="this.classList.add('img-fail')">
+            <b>Charred Margherita</b><span class="rate"><svg class="ic"><use href="#i-star"/></svg>4.7 · 28 min</span><em>₹299</em>
+          </article>
+          <article class="dish-card rv" data-go="s-dish">
+            <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=480&q=70" alt="Tonkotsu ramen" onerror="this.classList.add('img-fail')">
+            <b>Midnight Ramen</b><span class="rate"><svg class="ic"><use href="#i-star"/></svg>4.8 · 24 min</span><em>₹349</em>
+          </article>
+          <article class="dish-card rv" data-go="s-dish">
+            <img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?auto=format&fit=crop&w=480&q=70" alt="Biryani" onerror="this.classList.add('img-fail')">
+            <b>Dum Biryani Handi</b><span class="rate"><svg class="ic"><use href="#i-star"/></svg>4.8 · 32 min</span><em>₹379</em>
+          </article>
+        </div>
+        <div class="tail-space"></div>
+      </section>
+
+      <!-- ============ RESTAURANT ============ -->
+      <section class="screen" id="s-rest">
+        <div class="rest-hero" id="restHero">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=860&q=75" alt="Ember and Smoke BBQ" onerror="this.classList.add('img-fail')">
+          <div class="hero-scrim"></div>
+          <button class="iconbtn glass abs-tl" data-go="s-home" aria-label="Back"><svg class="ic flip"><use href="#i-chev-r"/></svg></button>
+          <div class="hero-actions">
+            <button class="iconbtn glass fav-toggle" aria-label="Favorite"><svg class="ic"><use href="#i-heart"/></svg></button>
+            <button class="iconbtn glass" aria-label="Share"><svg class="ic"><use href="#i-chev-r"/></svg></button>
+          </div>
+          <div class="rest-title">
+            <h1>Ember & Smoke</h1>
+            <p>Slow-fire BBQ · burgers · smoked bowls</p>
+          </div>
+        </div>
+        <div class="rest-info glass">
+          <div><b>4.8</b><small><svg class="ic gold"><use href="#i-star"/></svg>2.4k</small></div>
+          <div><b>25–35</b><small>min</small></div>
+          <div><b>1.2 km</b><small>away</small></div>
+          <div><b>₹49</b><small>delivery</small></div>
+        </div>
+        <div class="offer-strip glass tight"><svg class="ic brand"><use href="#i-gift"/></svg><span><strong>50 OFF</strong> above ₹399 · auto-applied</span></div>
+        <div class="chip-row scrollx" id="menuTabs">
+          <button class="chip chip-active">Bestsellers</button><button class="chip">Skewers</button><button class="chip">Burgers</button><button class="chip">Smoked bowls</button><button class="chip">Desserts</button>
+        </div>
+        <div class="menu-list" id="menuList">
+          <article class="menu-item rv" data-go="s-dish">
+            <div class="mi-copy"><i class="veg-dot"></i><b>Smoked Ember Skewers</b><em>₹289</em><small>Charred peppers · smoked yoghurt drizzle · 4 pcs</small><u class="cust">Customizable ></u></div>
+            <div class="mi-img"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=300&q=70" alt="Skewers" onerror="this.classList.add('img-fail')"><i class="add-mini" data-add data-name="Ember Skewers" data-price="289" role="button" aria-label="Add"><svg class="ic"><use href="#i-plus"/></svg></i></div>
+          </article>
+          <article class="menu-item rv" data-go="s-dish">
+            <div class="mi-copy"><i class="veg-dot"></i><b>Firecorn & Cheese Bites</b><em>₹179</em><small>Molten centre · herb crumb · 6 pcs</small></div>
+            <div class="mi-img"><img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=300&q=70" alt="Cheese bites and burger" onerror="this.classList.add('img-fail')"><i class="add-mini" data-add data-name="Firecorn Bites" data-price="179" role="button" aria-label="Add"><svg class="ic"><use href="#i-plus"/></svg></i></div>
+          </article>
+          <article class="menu-item rv" data-go="s-dish">
+            <div class="mi-copy"><i class="nonveg-dot"></i><b>Double Smash Burger</b><em>₹249</em><small>Two patties · house sauce · pickles</small><u class="cust">Bestseller ></u></div>
+            <div class="mi-img"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=300&q=70" alt="Smash burger" onerror="this.classList.add('img-fail')"><i class="add-mini" data-add data-name="Smash Burger" data-price="249" role="button" aria-label="Add"><svg class="ic"><use href="#i-plus"/></svg></i></div>
+          </article>
+          <article class="menu-item rv" data-go="s-dish">
+            <div class="mi-copy"><i class="nonveg-dot"></i><b>Hickory Rib Bowl</b><em>₹389</em><small>12-hr ribs · charred corn · slaw</small></div>
+            <div class="mi-img"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=300&q=70" alt="Rib bowl" onerror="this.classList.add('img-fail')"><i class="add-mini" data-add data-name="Rib Bowl" data-price="389" role="button" aria-label="Add"><svg class="ic"><use href="#i-plus"/></svg></i></div>
+          </article>
+          <article class="menu-item rv" data-go="s-dish">
+            <div class="mi-copy"><i class="veg-dot"></i><b>Charred Banana dessert</b><em>₹149</em><small>Burnt caramel · vanilla bean ice cream</small></div>
+            <div class="mi-img"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=300&q=70" alt="Dessert" onerror="this.classList.add('img-fail')"><i class="add-mini" data-add data-name="Charred Banana" data-price="149" role="button" aria-label="Add"><svg class="ic"><use href="#i-plus"/></svg></i></div>
+          </article>
+        </div>
+        <div class="tail-space"></div>
+      </section>
+
+      <!-- ============ DISH CUSTOMIZE ============ -->
+      <section class="screen" id="s-dish" data-nav="hide">
+        <div class="dish-hero" id="dishHero">
+          <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=860&q=75" alt="Smoked Ember Skewers close up" onerror="this.classList.add('img-fail')">
+          <div class="hero-scrim bottom"></div>
+          <button class="iconbtn glass abs-tl" data-go="s-rest" aria-label="Back"><svg class="ic flip"><use href="#i-chev-r"/></svg></button>
+          <span class="hero-tag">Macro shot · as served</span>
+        </div>
+        <div class="dish-body">
+          <h1>Smoked Ember Skewers</h1>
+          <p class="sub">Flame-kissed skewers with charred peppers and smoked yoghurt. Shot the moment it left the grill.</p>
+          <div class="price-row"><b class="price-lg" id="dishPrice">₹289</b><span class="veg-dot"></span><span class="rate"><svg class="ic"><use href="#i-star"/></svg>4.8 (312)</span></div>
+
+          <div class="sec-head"><h3>Size</h3></div>
+          <div class="segmented" id="sizeSeg">
+            <button class="on" data-d="0">Regular</button>
+            <button data-d="90">Medium +₹90</button>
+            <button data-d="180">Large +₹180</button>
+          </div>
+
+          <div class="sec-head"><h3>Add-ons</h3></div>
+          <div class="addon-list">
+            <label class="addon"><span><b>Extra smoked cheese</b><small>+₹40</small></span><input type="checkbox" data-d="40"><i></i></label>
+            <label class="addon"><span><b>Charred pepper mix</b><small>+₹30</small></span><input type="checkbox" data-d="30"><i></i></label>
+            <label class="addon"><span><b>Garlic butter drizzle</b><small>+₹25</small></span><input type="checkbox" data-d="25"><i></i></label>
+          </div>
+
+          <div class="sec-head"><h3>Spice level</h3></div>
+          <div class="spice-row" id="spiceRow">
+            <button data-l="1" aria-label="Mild">🌶</button>
+            <button data-l="2" aria-label="Medium">🌶</button>
+            <button data-l="3" aria-label="Hot">🌶</button>
+            <button data-l="4" aria-label="Inferno">🌶</button>
+          </div>
+          <p class="fine" id="spiceLabel">Tap to set your heat</p>
+
+          <div class="sec-head"><h3>Special note</h3></div>
+          <label class="field area"><textarea rows="2" placeholder="Extra crispy, less oil, ring the bell twice…"></textarea></label>
+          <div class="tail-space"></div>
+        </div>
+        <div class="cta-dock glass">
+          <div class="qty-stepper soft"><button id="qtyMinus" aria-label="Decrease"><svg class="ic"><use href="#i-minus"/></svg></button><b id="qtyVal">1</b><button id="qtyPlus" aria-label="Increase"><svg class="ic"><use href="#i-plus"/></svg></button></div>
+          <button class="btn btn-primary btn-lg grow" id="addPlateBtn">Add to plate · <span id="ctaPrice">₹289</span></button>
+        </div>
+      </section>
+
+      <!-- ============ CART ============ -->
+      <section class="screen" id="s-cart">
+        <header class="pg-head row">
+          <button class="iconbtn ghost" data-go="s-rest" aria-label="Back"><svg class="ic flip"><use href="#i-chev-r"/></svg></button>
+          <div><h1 class="h3">Your plate</h1><small class="dim" id="cartFrom">from Ember & Smoke</small></div>
+          <button class="link" data-go="s-rest">Add more</button>
+        </header>
+        <div class="plate-scene">
+          <div class="plate" id="plate">
+            <div class="plate-rim"></div>
+            <div class="plate-food pf1"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=200&q=70" alt="" onerror="this.classList.add('img-fail')"></div>
+            <div class="plate-food pf2"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=200&q=70" alt="" onerror="this.classList.add('img-fail')"></div>
+            <div class="plate-food pf3"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=200&q=70" alt="" onerror="this.classList.add('img-fail')"></div>
+            <div class="plate-steam s1"></div><div class="plate-steam s2"></div><div class="plate-steam s3"></div>
+          </div>
+          <p class="fine center">Served fresh · packed hot</p>
+        </div>
+        <div class="cart-items" id="cartItems">
+          <div class="cart-item" data-price="289">
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=160&q=70" alt="" onerror="this.classList.add('img-fail')">
+            <span><b>Smoked Ember Skewers</b><small>Medium · extra cheese</small><em>₹<b class="line">329</b></em></span>
+            <div class="qty-stepper soft sm"><button aria-label="Decrease"><svg class="ic"><use href="#i-minus"/></svg></button><b>1</b><button aria-label="Increase"><svg class="ic"><use href="#i-plus"/></svg></button></div>
+          </div>
+          <div class="cart-item" data-price="179">
+            <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=160&q=70" alt="" onerror="this.classList.add('img-fail')">
+            <span><b>Firecorn & Cheese Bites</b><small>6 pcs</small><em>₹<b class="line">179</b></em></span>
+            <div class="qty-stepper soft sm"><button aria-label="Decrease"><svg class="ic"><use href="#i-minus"/></svg></button><b>1</b><button aria-label="Increase"><svg class="ic"><use href="#i-plus"/></svg></button></div>
+          </div>
+        </div>
+        <div class="bill glass" id="billCard">
+          <div class="b-row"><span>Item total</span><b>₹<i id="bItems">508</i></b></div>
+          <div class="b-row"><span>Delivery fee</span><b>₹49</b></div>
+          <div class="b-row"><span>Taxes & charges</span><b>₹<i id="bTax">46</i></b></div>
+          <div class="b-row save"><span>HUNGRY20 applied</span><b>−₹60</b></div>
+          <div class="b-row total"><span>To pay</span><b>₹<i id="bTotal">543</i></b></div>
+        </div>
+        <div class="tail-space"></div>
+        <div class="cta-dock glass">
+          <div><small>Total</small><b class="price-lg">₹<span id="ctaTotal">543</span></b></div>
+          <button class="btn btn-primary btn-lg grow" id="checkoutBtn" data-go="s-checkout">Checkout <svg class="ic"><use href="#i-chev-r"/></svg></button>
+        </div>
+      </section>
+
+      <!-- ============ CHECKOUT ============ -->
+      <section class="screen" id="s-checkout" data-nav="hide">
+        <header class="pg-head row">
+          <button class="iconbtn ghost" data-go="s-cart" aria-label="Back"><svg class="ic flip"><use href="#i-chev-r"/></svg></button>
+          <h1 class="h3">Checkout</h1><span class="dim">Secure</span>
+        </header>
+        <div class="addr-card glass">
+          <svg class="ic brand"><use href="#i-pin"/></svg>
+          <span><b>Home · 4th Block Koramangala</b><small>Door 302, Prestige Heights, 560034</small></span>
+          <button class="link">Edit</button>
+        </div>
+        <div class="chip-row wrap"><button class="chip chip-active"><svg class="ic"><use href="#i-bike"/></svg> Now · 32 min</button><button class="chip"><svg class="ic"><use href="#i-clock"/></svg> Tonight 8 PM</button></div>
+        <div class="sec-head"><h3>Pay with</h3></div>
+        <div class="pay-list" id="payList">
+          <button class="pay-item on" data-pay="upi"><svg class="ic brand"><use href="#i-spark"/></svg><span><b>UPI</b><small>GPay · PhonePe · any UPI</small></span><i class="radio"></i></button>
+          <button class="pay-item" data-pay="card"><svg class="ic"><use href="#i-card"/></svg><span><b>Card</b><small>HDFC •••• 4629</small></span><i class="radio"></i></button>
+          <button class="pay-item" data-pay="wallet"><svg class="ic"><use href="#i-wallet"/></svg><span><b>Wallet</b><small>Balance ₹120</small></span><i class="radio"></i></button>
+          <button class="pay-item" data-pay="cod"><svg class="ic"><use href="#i-cash"/></svg><span><b>Cash on delivery</b><small>Pay at the door</small></span><i class="radio"></i></button>
+        </div>
+        <div class="sec-head"><h3>Tip your rider</h3></div>
+        <div class="chip-row wrap" id="tipRow">
+          <button class="chip">₹20</button><button class="chip chip-active">₹30</button><button class="chip">₹50</button><button class="chip">Custom</button>
+        </div>
+        <div class="bill glass">
+          <div class="b-row"><span>Item total</span><b>₹508</b></div>
+          <div class="b-row"><span>Delivery + platform</span><b>₹95</b></div>
+          <div class="b-row save"><span>HUNGRY20</span><b>−₹60</b></div>
+          <div class="b-row total"><span>To pay</span><b>₹<i id="payTotal">543</i></b></div>
+        </div>
+        <div class="tail-space"></div>
+        <div class="cta-dock glass">
+          <div><small>Paying via</small><b id="payMode">UPI</b></div>
+          <button class="btn btn-primary btn-lg grow" id="payBtn" data-go="s-success"><svg class="ic"><use href="#i-check"/></svg> Pay ₹543</button>
+        </div>
+      </section>
+
+      <!-- ============ SUCCESS ============ -->
+      <section class="screen center-screen" id="s-success" data-nav="hide">
+        <div class="confetti" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="success-plate">
+          <svg class="eta-ring" viewBox="0 0 120 120"><circle cx="60" cy="60" r="54" class="ring-bg"/><circle cx="60" cy="60" r="54" class="ring-fg"/></svg>
+          <div class="success-check"><svg class="ic"><use href="#i-check"/></svg></div>
+          <div class="mini-steam s1"></div><div class="mini-steam s2"></div>
+        </div>
+        <h1 class="h2 center">Feast locked in!</h1>
+        <p class="sub center">Order <b>#HB-2451</b> · Ember & Smoke<br>Arriving in about <b>32 min</b></p>
+        <button class="btn btn-primary btn-lg" data-go="s-track"><svg class="ic"><use href="#i-bike"/></svg> Track your feast</button>
+        <button class="link-dim" data-go="s-home">Back to home</button>
+      </section>
+
+      <!-- ============ LIVE TRACKING ============ -->
+      <section class="screen map-screen" id="s-track" data-nav="hide">
+        <div class="track-map">
+          <svg viewBox="0 0 390 460" preserveAspectRatio="xMidYMid slice" class="streets">
+            <path d="M-20 70 H410 M-20 160 H410 M-20 250 H410 M-20 340 H410 M80 -20 V480 M190 -20 V480 M310 -20 V480" class="st-minor"/>
+            <path d="M-20 115 C 90 90, 210 200, 410 160 M130 -20 C 150 140, 70 260, 170 480" class="st-major"/>
+            <path d="M-20 300 C 60 280, 100 220, 190 230 S 320 190, 410 140" class="st-route" id="routePath"/>
+            <g class="rider-move"><circle r="10" class="rider-dot"/><g class="rider-ic"><circle r="16" class="rider-halo"/><path d="M-5 3h9l-4-9h-2m2 0 1.4-3h2.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></g></g>
+            <g class="map-pin rest-pin"><circle r="5"/><path d="M0 6v10" class="pin-stem"/></g>
+            <g class="map-pin home-pin"><circle r="5"/><path d="M0 6v10" class="pin-stem"/></g>
+          </svg>
+          <div class="track-top">
+            <button class="iconbtn glass" data-go="s-home" aria-label="Back"><svg class="ic flip"><use href="#i-chev-r"/></svg></button>
+            <div class="eta-chip glass"><span class="pulse-dot"></span><span><small>Arriving in</small><b>12 min</b></span></div>
+          </div>
+          <div class="track-badge glass"><svg class="ic"><use href="#i-bike"/></svg>Rider is 1.8 km away</div>
+        </div>
+        <div class="track-sheet">
+          <div class="grabber"></div>
+          <div class="rider-row">
+            <img class="avatar" src="https://i.pravatar.cc/120?img=12" alt="Rider Rohit" onerror="this.classList.add('img-fail')">
+            <span><b>Rohit K.</b><small><svg class="ic gold"><use href="#i-star"/></svg>4.9 · EV scooter · KA-01</small></span>
+            <button class="iconbtn soft" data-go="s-chat" aria-label="Chat"><svg class="ic"><use href="#i-chat"/></svg></button>
+            <button class="iconbtn soft" aria-label="Call"><svg class="ic"><use href="#i-phone"/></svg></button>
+          </div>
+          <div class="timeline" id="timeline">
+            <div class="t-step done"><i></i><span><b>Order confirmed</b><small>6:42 PM</small></span></div>
+            <div class="t-step done"><i></i><span><b>Fire it up — cooking</b><small>6:51 PM</small></span></div>
+            <div class="t-step now"><i></i><span><b>Picked up · on the way</b><small>7:08 PM</small></span></div>
+            <div class="t-step"><i></i><span><b>Deliver with a smile</b><small>~7:20 PM</small></span></div>
+          </div>
+          <div class="track-order glass tight">
+            <span><b>#HB-2451</b><small>2 items · Ember & Smoke</small></span>
+            <b>₹543</b>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ RIDER CHAT ============ -->
+      <section class="screen chat-screen" id="s-chat" data-nav="hide">
+        <header class="chat-head glass">
+          <button class="iconbtn ghost" data-go="s-track" aria-label="Back"><svg class="ic flip"><use href="#i-chev-r"/></svg></button>
+          <img class="avatar sm" src="https://i.pravatar.cc/120?img=12" alt="" onerror="this.classList.add('img-fail')">
+          <span><b>Rohit K.</b><small>usually replies instantly</small></span>
+          <button class="iconbtn soft" aria-label="Call"><svg class="ic"><use href="#i-phone"/></svg></button>
+        </header>
+        <div class="chat-body" id="chatBody">
+          <div class="day-mark">Today · order #HB-2451</div>
+          <div class="bub them">Hi! Packed your order hot 🔥 leaving the kitchen now.</div>
+          <div class="bub them typing" id="typingBubble"><i></i><i></i><i></i></div>
+          <div class="bub me">Please ring the bell twice, thanks!</div>
+        </div>
+        <div class="quick-row">
+          <button class="chip" data-qr="Please come to gate 2 🙏">Gate 2 please</button>
+          <button class="chip" data-qr="No rush, drive safe ❤️">Drive safe</button>
+          <button class="chip" data-qr="Call me when close 📞">Call me</button>
+        </div>
+        <footer class="chat-input glass">
+          <input placeholder="Message rider…">
+          <button class="iconbtn brand" id="chatSend" aria-label="Send"><svg class="ic flip"><use href="#i-chev-r"/></svg></button>
+        </footer>
+      </section>
+
+      <!-- ============ ORDER HISTORY ============ -->
+      <section class="screen" id="s-history">
+        <header class="pg-head"><h1 class="h3">Your feasts</h1><button class="link">Filters</button></header>
+        <article class="order-card rv">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=260&q=70" alt="" onerror="this.classList.add('img-fail')">
+          <span><b>Ember & Smoke</b><small>Yesterday · 7:20 PM · Skewers, Bites</small><small class="dim">₹543 · <i class="pill-ok">Delivered</i></small></span>
+          <div class="oc-actions"><button class="btn btn-soft sm reorder-btn" data-name="Ember & Smoke feast" data-price="543">Reorder</button><button class="link" data-go="s-rate">Rate</button></div>
+        </article>
+        <article class="order-card rv">
+          <img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?auto=format&fit=crop&w=260&q=70" alt="" onerror="this.classList.add('img-fail')">
+          <span><b>Dakshin Spoon</b><small>Sun · 1:05 PM · Dum Biryani Handi</small><small class="dim">₹379 · <i class="pill-ok">Delivered</i></small></span>
+          <div class="oc-actions"><button class="btn btn-soft sm reorder-btn" data-name="Dum Biryani" data-price="379">Reorder</button><button class="link" data-go="s-rate">Rate</button></div>
+        </article>
+        <article class="order-card rv">
+          <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=260&q=70" alt="" onerror="this.classList.add('img-fail')">
+          <span><b>Neon Wok</b><small>Fri · 11:58 PM · Midnight Ramen</small><small class="dim">₹349 · <i class="pill-warn">Refunded</i></small></span>
+          <div class="oc-actions"><button class="btn btn-soft sm reorder-btn" data-name="Midnight Ramen" data-price="349">Reorder</button><button class="link" data-go="s-rate">Rate</button></div>
+        </article>
+        <div class="tail-space"></div>
+      </section>
+
+      <!-- ============ FAVORITES ============ -->
+      <section class="screen" id="s-favs">
+        <header class="pg-head"><h1 class="h3">Saved cravings</h1></header>
+        <div class="grid2" id="favGrid">
+          <article class="dish-card"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=480&q=70" alt="" onerror="this.classList.add('img-fail')"><b>Ember Skewers</b><span class="rate"><svg class="ic"><use href="#i-star"/></svg>4.8</span><em>₹289</em><button class="fav-toggle on" aria-label="Unfavorite"><svg class="ic"><use href="#i-heart"/></svg></button></article>
+          <article class="dish-card"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=480&q=70" alt="" onerror="this.classList.add('img-fail')"><b>Green Goddess Bowl</b><span class="rate"><svg class="ic"><use href="#i-star"/></svg>4.9</span><em>₹269</em><button class="fav-toggle on" aria-label="Unfavorite"><svg class="ic"><use href="#i-heart"/></svg></button></article>
+          <article class="dish-card"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=480&q=70" alt="" onerror="this.classList.add('img-fail')"><b>Charred Margherita</b><span class="rate"><svg class="ic"><use href="#i-star"/></svg>4.7</span><em>₹299</em><button class="fav-toggle on" aria-label="Unfavorite"><svg class="ic"><use href="#i-heart"/></svg></button></article>
+          <article class="dish-card"><img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=480&q=70" alt="" onerror="this.classList.add('img-fail')"><b>Midnight Ramen</b><span class="rate"><svg class="ic"><use href="#i-star"/></svg>4.8</span><em>₹349</em><button class="fav-toggle on" aria-label="Unfavorite"><svg class="ic"><use href="#i-heart"/></svg></button></article>
+        </div>
+        <div class="tail-space"></div>
+      </section>
+
+      <!-- ============ REWARDS ============ -->
+      <section class="screen" id="s-rewards">
+        <header class="pg-head"><h1 class="h3">Rewards</h1><button class="link">History</button></header>
+        <div class="coins-card">
+          <div class="coins-glow"></div>
+          <svg class="ic coins-ic"><use href="#i-spark"/></svg>
+          <b>240</b><span>bird coins · worth ₹240</span>
+          <small>Earn 1 coin per ₹10 · they never expire</small>
+        </div>
+        <div class="sec-head"><h3>Scratch to win</h3></div>
+        <button class="scratch-card" id="scratchCard">
+          <div class="scratch-front"><svg class="ic"><use href="#i-gift"/></svg><span>Tap to scratch</span></div>
+          <div class="scratch-back"><b>20% OFF</b><small>code SCRATCH20 · today only</small></div>
+        </button>
+        <div class="sec-head"><h3>Coupons for you</h3></div>
+        <div class="coupon glass rv"><span class="c-code">HUNGRY20</span><span><b>20% off</b><small>First order · max ₹100</small></span><button class="btn btn-soft sm">Apply</button></div>
+        <div class="coupon glass rv"><span class="c-code">MIDNIGHT50</span><span><b>₹50 off</b><small>Orders after 11 PM</small></span><button class="btn btn-soft sm">Apply</button></div>
+        <div class="tail-space"></div>
+      </section>
+
+      <!-- ============ RATE & REVIEW ============ -->
+      <section class="screen" id="s-rate" data-nav="hide">
+        <header class="pg-head row">
+          <button class="iconbtn ghost" data-go="s-history" aria-label="Back"><svg class="ic flip"><use href="#i-chev-r"/></svg></button>
+          <h1 class="h3">Rate your feast</h1><span class="dim">#HB-2451</span>
+        </header>
+        <div class="rate-hero">
+          <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=300&q=70" alt="" onerror="this.classList.add('img-fail')">
+          <span><b>Ember & Smoke</b><small>Skewers · Bites · delivered 7:20 PM</small></span>
+        </div>
+        <div class="stars" id="starRow">
+          <button data-v="1" aria-label="1 star"><svg class="ic"><use href="#i-star"/></svg></button>
+          <button data-v="2" aria-label="2 stars"><svg class="ic"><use href="#i-star"/></svg></button>
+          <button data-v="3" aria-label="3 stars"><svg class="ic"><use href="#i-star"/></svg></button>
+          <button data-v="4" aria-label="4 stars"><svg class="ic"><use href="#i-star"/></svg></button>
+          <button data-v="5" aria-label="5 stars"><svg class="ic"><use href="#i-star"/></svg></button>
+        </div>
+        <p class="fine center" id="starLabel">How hot was it?</p>
+        <div class="chip-row wrap">
+          <button class="chip">🔥 Piping hot</button><button class="chip">🥘 Generous portion</button><button class="chip">📦 Neat packaging</button><button class="chip">⏱ On time</button>
+        </div>
+        <div class="sec-head"><h3>Add photos</h3></div>
+        <div class="photo-row">
+          <button class="photo-add"><svg class="ic"><use href="#i-cam"/></svg></button>
+          <span class="fine">Food looks this good? Prove it. Photos get 2× coins.</span>
+        </div>
+        <label class="field area"><textarea rows="3" placeholder="Tell other hungry birds about it…"></textarea></label>
+        <button class="btn btn-primary btn-lg" id="rateSubmit" data-go="s-history">Submit review</button>
+        <div class="tail-space"></div>
+      </section>
+
+      <!-- ============ PROFILE ============ -->
+      <section class="screen" id="s-profile">
+        <header class="pg-head"><h1 class="h3">You</h1><button class="iconbtn ghost" data-go="s-notifs" aria-label="Notifications"><svg class="ic"><use href="#i-bell"/></svg></button></header>
+        <div class="prof-head">
+          <img class="avatar lg" src="https://i.pravatar.cc/200?img=33" alt="Aarav Mehta" onerror="this.classList.add('img-fail')">
+          <span><b>Aarav Mehta</b><small>aarav@hungry.bird</small></span>
+          <button class="btn btn-soft sm">Edit</button>
+        </div>
+        <div class="stat-row glass">
+          <div><b>28</b><small>orders</small></div><div><b>240</b><small>coins</small></div><div><b>9</b><small>reviews</small></div>
+        </div>
+        <div class="sec-head"><h3>Appearance</h3></div>
+        <div class="segmented wide" id="themeSeg">
+          <button class="on" data-tset="auto">Auto ✨</button>
+          <button data-tset="day">Light</button>
+          <button data-tset="night">Dark</button>
+        </div>
+        <div class="loc-list tight">
+          <button class="loc-item" data-go="s-loc"><svg class="ic"><use href="#i-pin"/></svg><span><strong>Saved addresses</strong><small>Home · Work · 2 more</small></span><svg class="ic dim"><use href="#i-chev-r"/></svg></button>
+          <button class="loc-item" data-go="s-rewards"><svg class="ic"><use href="#i-wallet"/></svg><span><strong>Payments & wallet</strong><small>UPI · HDFC ••4629</small></span><svg class="ic dim"><use href="#i-chev-r"/></svg></button>
+          <button class="loc-item" data-go="s-favs"><svg class="ic"><use href="#i-heart"/></svg><span><strong>Saved cravings</strong><small>4 dishes</small></span><svg class="ic dim"><use href="#i-chev-r"/></svg></button>
+          <button class="loc-item" data-go="s-states"><svg class="ic"><use href="#i-spark"/></svg><span><strong>Help & states gallery</strong><small>Empty · error · loading</small></span><svg class="ic dim"><use href="#i-chev-r"/></svg></button>
+          <button class="loc-item" data-go="s-system"><svg class="ic"><use href="#i-sun"/></svg><span><strong>Design system</strong><small>Tokens · type · components</small></span><svg class="ic dim"><use href="#i-chev-r"/></svg></button>
+        </div>
+        <button class="btn btn-soft signout">Sign out</button>
+        <div class="tail-space"></div>
+      </section>
+
+      <!-- ============ NOTIFICATIONS ============ -->
+      <section class="screen" id="s-notifs">
+        <header class="pg-head row">
+          <button class="iconbtn ghost" data-go="s-home" aria-label="Back"><svg class="ic flip"><use href="#i-chev-r"/></svg></button>
+          <h1 class="h3">Notifications</h1><button class="link">Clear</button>
+        </header>
+        <div class="chip-row wrap"><button class="chip chip-active">All</button><button class="chip">Offers</button><button class="chip">Orders</button></div>
+        <div class="notif live glass">
+          <span class="pulse-dot"></span>
+          <span><b>Rohit picked up #HB-2451</b><small>2 min ago · arriving in ~12 min</small></span>
+          <button class="btn btn-soft sm" data-go="s-track">Track</button>
+        </div>
+        <div class="notif rv"><svg class="ic brand"><use href="#i-gift"/></svg><span><b>20% off your next feast</b><small>HUNGRY20 expires tonight</small></span></div>
+        <div class="notif rv"><svg class="ic gold"><use href="#i-star"/></svg><span><b>Rate your biryani, earn 20 coins</b><small>Yesterday</small></span><button class="btn btn-soft sm" data-go="s-rate">Rate</button></div>
+        <div class="notif rv"><svg class="ic dim"><use href="#i-spark"/></svg><span><b>Neon Wok is now on Hungry Bird</b><small>2 days ago · 18 min delivery</small></span></div>
+        <div class="tail-space"></div>
+      </section>
+
+      <!-- ============ STATES GALLERY ============ -->
+      <section class="screen" id="s-states">
+        <header class="pg-head row">
+          <button class="iconbtn ghost" data-go="s-profile" aria-label="Back"><svg class="ic flip"><use href="#i-chev-r"/></svg></button>
+          <h1 class="h3">States gallery</h1><span class="dim">A11y AA</span>
+        </header>
+        <div class="sec-head"><h3>Loading — skeletons</h3></div>
+        <div class="skl-card glass"><div class="skl img"></div><div class="skl-body"><div class="skl line w70"></div><div class="skl line w40"></div><div class="skl line w55"></div></div></div>
+        <div class="skl-card glass"><div class="skl img"></div><div class="skl-body"><div class="skl line w60"></div><div class="skl line w45"></div></div></div>
+        <div class="sec-head"><h3>Empty — your plate</h3></div>
+        <div class="empty-box">
+          <div class="empty-plate"><i></i><span>🍽️</span></div>
+          <b>Your plate is empty</b><small>Add something delicious — the wheel knows your mood.</small>
+          <button class="btn btn-primary sm" data-go="s-home">Find food</button>
+        </div>
+        <div class="sec-head"><h3>Error — network</h3></div>
+        <div class="empty-box err">
+          <span class="err-ic"><svg class="ic"><use href="#i-x"/></svg></span>
+          <b>The kitchen dropped the connection</b><small>We couldn't load your feed. Check your network.</small>
+          <button class="btn btn-soft sm" id="retryBtn">Try again</button>
+        </div>
+        <div class="tail-space"></div>
+      </section>
+
+      <!-- ============ DESIGN SYSTEM ============ -->
+      <section class="screen" id="s-system">
+        <header class="pg-head row">
+          <button class="iconbtn ghost" data-go="s-profile" aria-label="Back"><svg class="ic flip"><use href="#i-chev-r"/></svg></button>
+          <h1 class="h3">Design system</h1><span class="dim">v1.0</span>
+        </header>
+        <div class="sec-head"><h3>Signature palette</h3></div>
+        <div class="swatch-grid">
+          <div class="sw" style="--c:#0C6B58"><b>Basil</b><small>#0C6B58</small></div>
+          <div class="sw" style="--c:#F4502A"><b>Ember</b><small>#F4502A</small></div>
+          <div class="sw" style="--c:#F2A93B"><b>Saffron</b><small>#F2A93B</small></div>
+          <div class="sw" style="--c:#F6F4EE;border:1px solid var(--line)"><b>Paper</b><small>#F6F4EE</small></div>
+          <div class="sw" style="--c:#191813"><b>Ink</b><small>#191813</small></div>
+          <div class="sw" style="--c:#3CE8C8"><b>Neon Mint</b><small>#3CE8C8</small></div>
+        </div>
+        <div class="sec-head"><h3>Type — Fraunces + Manrope</h3></div>
+        <div class="type-specs">
+          <p class="t-d1">Display 28 · Fraunces <em>italic</em></p>
+          <p class="t-d2">Title 20 · Fraunces SemiBold</p>
+          <p class="t-b1">Body 15 · Manrope — the quick brown fox jumps over the lazy dog.</p>
+          <p class="t-b2">Caption 12 · Manrope 500 · #6E6A5E</p>
+        </div>
+        <div class="sec-head"><h3>Spacing — 8pt grid</h3></div>
+        <div class="space-specs"><i style="--w:8px"></i><i style="--w:16px"></i><i style="--w:24px"></i><i style="--w:32px"></i><i style="--w:40px"></i></div>
+        <div class="sec-head"><h3>Radius & elevation</h3></div>
+        <div class="radius-specs"><i class="r12"></i><i class="r20"></i><i class="r28"></i><i class="r-full"></i></div>
+        <div class="sec-head"><h3>Buttons & states</h3></div>
+        <div class="comp-row"><button class="btn btn-primary">Primary</button><button class="btn btn-soft">Soft</button><button class="btn btn-glass">Glass</button><button class="btn btn-primary" disabled>Disabled</button></div>
+        <div class="sec-head"><h3>Chips · inputs · toggle</h3></div>
+        <div class="comp-row wrap"><button class="chip chip-active">Active</button><button class="chip">Chip</button><span class="switch on"><i></i></span></div>
+        <label class="field"><input placeholder="Input field — 44px min height"></label>
+        <div class="sec-head"><h3>Motion tokens</h3></div>
+        <div class="motion-specs glass">
+          <div><b>springs</b><small>cubic-bezier(.34,1.56,.64,1)</small></div>
+          <div><b>fast 180ms</b><small>chips · taps</small></div>
+          <div><b>base 260ms</b><small>screens · cards</small></div>
+          <div><b>slow 420ms</b><small>hero · wheel</small></div>
+        </div>
+        <div class="sec-head"><h3>Icons — 1.8px round</h3></div>
+        <div class="icon-grid">
+          <svg class="ic lg"><use href="#i-home"/></svg><svg class="ic lg"><use href="#i-search"/></svg><svg class="ic lg"><use href="#i-bag"/></svg><svg class="ic lg"><use href="#i-heart"/></svg><svg class="ic lg"><use href="#i-star"/></svg><svg class="ic lg"><use href="#i-flame"/></svg><svg class="ic lg"><use href="#i-pin"/></svg><svg class="ic lg"><use href="#i-clock"/></svg><svg class="ic lg"><use href="#i-bike"/></svg><svg class="ic lg"><use href="#i-gift"/></svg>
+        </div>
+        <div class="tail-space"></div>
+      </section>
+
+      </main>
+
+      <nav class="tabbar" id="tabbar" aria-label="Primary">
+        <div class="blob" id="navBlob"></div>
+        <button data-go="s-home" data-tab="s-home"><svg class="ic"><use href="#i-home"/></svg><span>Home</span></button>
+        <button data-go="s-search" data-tab="s-search"><svg class="ic"><use href="#i-search"/></svg><span>Search</span></button>
+        <button data-go="s-cart" data-tab="s-cart" class="cart-tab"><svg class="ic"><use href="#i-bag"/></svg><span>Plate</span><i class="dot-badge" id="cartBadge">2</i></button>
+        <button data-go="s-history" data-tab="s-history"><svg class="ic"><use href="#i-receipt"/></svg><span>Orders</span></button>
+        <button data-go="s-profile" data-tab="s-profile"><svg class="ic"><use href="#i-user"/></svg><span>You</span></button>
+      </nav>
+
+      <div class="toast" id="toast" role="status"></div>
+      <div class="steam-veil" id="veil"><i></i><i></i><i></i></div>
+      <div class="grain" aria-hidden="true"></div>
+      <div class="homebar" aria-hidden="true"></div>
+    </div>
+
+    <aside class="demo-panel glass-panel">
+      <b>Hungry Bird · UI prototype</b>
+      <small>390×844 · click any screen · light/dark & time themes live</small>
+      <div class="dp-themes">
+        <button data-tset="auto">Auto</button><button data-tset="dawn">Sunrise</button><button data-tset="day">Day</button><button data-tset="dusk">Golden</button><button data-tset="night">Neon</button>
+      </div>
+      <div class="dp-grid" id="dpGrid"></div>
+    </aside>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

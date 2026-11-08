@@ -1,0 +1,239 @@
+/* ============================================================
+   HUNGRY BIRD — DESKTOP / WEB APP LAYER
+   ≥1024px: full-viewport app shell · sidebar nav · wide layouts
+   Mobile (<1024px) keeps the original phone prototype intact.
+   ============================================================ */
+
+/* ---------- SHELL ---------- */
+@media (min-width:1024px){
+  :root{--sbw:248px}
+
+  body{overflow:hidden}
+  .stage{display:block;padding:0}
+  .device{display:block;width:100%;height:100vh}
+  .ambient{filter:blur(120px);opacity:.5}
+
+  /* the phone frame becomes the app canvas */
+  .phone{
+    width:100%;height:100vh;height:100dvh;border-radius:0;box-shadow:none;
+    transform:none!important;
+  }
+  .phone::before{display:none}          /* no device bezel */
+  .statusbar{display:none}               /* no fake iOS bar */
+  .tabbar,.nav-blob{display:none!important} /* sidebar replaces it */
+  .demo-panel{display:none!important}    /* sidebar replaces it */
+
+  /* screens shift right of sidebar, content gets a reading column */
+  .screen{left:var(--sbw);padding:0 clamp(28px,4.5vw,72px) 0}
+  .screen>*{max-width:1160px;margin-left:auto;margin-right:auto;width:100%}
+  .screen>.tail-space{max-width:none}
+
+  /* scrollbars become visible & slim on desktop */
+  .screen::-webkit-scrollbar{display:block;width:10px}
+  .screen::-webkit-scrollbar-thumb{background:color-mix(in srgb,var(--ink2) 28%,transparent);border-radius:99px;border:3px solid transparent;background-clip:content-box}
+  .screen::-webkit-scrollbar-thumb:hover{background:color-mix(in srgb,var(--ink2) 45%,transparent);border:3px solid transparent;background-clip:content-box}
+
+  .tail-space{height:56px}
+
+  /* ================= SIDEBAR ================= */
+  .sidebar{
+    position:fixed;inset:0 auto 0 0;width:var(--sbw);z-index:70;
+    display:flex;flex-direction:column;gap:4px;padding:26px 14px 18px;
+    background:color-mix(in srgb,var(--srf) 72%,transparent);
+    backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+    border-right:1px solid var(--line);
+    animation:sbIn .5s var(--ease) both;
+  }
+  @keyframes sbIn{from{transform:translateX(-16px);opacity:0}}
+  .sb-brand{display:flex;align-items:center;gap:11px;padding:0 10px 20px}
+  .sb-brand .brandmark{width:44px;height:44px;flex:none}
+  .sb-brand b{font-family:var(--fd);font-size:19px;letter-spacing:-.02em;line-height:1.05;display:block}
+  .sb-brand small{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+  .sb-sec{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2);padding:14px 12px 6px}
+  .sb-nav{display:flex;flex-direction:column;gap:2px;overflow-y:auto;scrollbar-width:none}
+  .sb-nav::-webkit-scrollbar{display:none}
+  .sb-item{
+    display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:13px;
+    font-size:13.5px;font-weight:700;color:var(--ink2);cursor:pointer;
+    transition:all .18s var(--ease);background:transparent;border:0;text-align:left;width:100%;
+  }
+  .sb-item .ic{width:19px;height:19px;flex:none}
+  .sb-item:hover{background:var(--srf2);color:var(--ink);transform:translateX(2px)}
+  .sb-item.on{background:var(--brand);color:#fff;box-shadow:0 8px 20px -8px color-mix(in srgb,var(--brand) 70%,transparent)}
+  .sb-item .sb-badge{margin-left:auto;min-width:20px;height:20px;padding:0 6px;border-radius:99px;background:var(--ember);color:#fff;font-size:11px;font-weight:800;display:grid;place-items:center}
+  .sb-item.on .sb-badge{background:rgba(255,255,255,.22)}
+  .sb-foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+  .sb-themes{display:flex;gap:6px}
+  .sb-themes button{
+    flex:1;font-size:10.5px;font-weight:800;padding:8px 2px;border-radius:10px;
+    background:var(--srf2);color:var(--ink2);border:0;cursor:pointer;transition:all .18s;
+  }
+  .sb-themes button:hover{color:var(--ink);transform:translateY(-1px)}
+  .sb-themes button.on{background:var(--ink);color:var(--bg)}
+  .sb-user{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:13px;background:var(--srf2)}
+  .sb-user .avatar{width:34px;height:34px}
+  .sb-user span{display:flex;flex-direction:column;line-height:1.25;min-width:0}
+  .sb-user b{font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sb-user small{font-size:10.5px;color:var(--ink2)}
+
+  /* ================= GENERIC WIDE PATTERNS ================= */
+  .pg-head{margin:28px 0 22px;padding-top:8px}
+  .pg-head .h3{font-size:clamp(24px,2.4vw,32px)}
+  .sec-head h3{font-size:clamp(17px,1.5vw,20px)}
+
+  /* horizontal rails become responsive grids */
+  .hscroll{
+    display:grid!important;grid-auto-flow:row!important;
+    grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:18px;
+    overflow:visible!important;transform:none!important;
+  }
+  .hscroll>*{width:auto!important;flex:none!important}
+
+  /* dish cards grow into tall media cards */
+  .dish-card .dish-img{height:170px}
+  .dish-card h4{font-size:15.5px}
+
+  /* ================= HOME ================= */
+  #s-home .home-scroll{display:flex;flex-direction:column;gap:26px;padding-top:30px}
+  #s-home .greet-row{padding-top:6px}
+  #s-home .greet{font-size:clamp(30px,3.4vw,44px)}
+  #s-home .greet-sub{font-size:15px}
+
+  /* mood wheel + hero sit side by side */
+  #s-home .mood-dial{
+    position:relative;margin:0 auto;
+    width:min(400px,90%);height:auto;aspect-ratio:1;
+  }
+  #s-home{--mood-split:1fr 1.15fr}
+  .home-top{
+    display:grid;grid-template-columns:var(--mood-split);gap:clamp(24px,4vw,56px);
+    align-items:center;
+  }
+  .home-top .hero-card{margin:0}
+  .hero-card{display:grid;grid-template-columns:1.15fr 1fr;min-height:300px}
+  .hero-card .hero-media{height:100%;min-height:300px;border-radius:28px 0 0 28px}
+  .hero-card .hero-body{border-radius:0 28px 28px 0;display:flex;flex-direction:column;justify-content:center;gap:10px;padding:26px}
+  .hero-card .hero-body h2{font-size:clamp(22px,2vw,28px)}
+  .hero-card .hero-cta small{display:block;margin-bottom:2px}
+  .hero-card .hero-cta b{font-size:24px}
+  .offer-strip{padding:16px 20px;font-size:14px}
+
+  .usuals{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .usual-row{padding:14px 16px}
+
+  /* ================= SEARCH ================= */
+  #s-search .search-field.big{max-width:640px;margin-bottom:24px}
+  #s-search .grid2{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:16px}
+  #s-search .loc-list.tight{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+
+  /* ================= RESTAURANT ================= */
+  #s-rest{padding:0!important}
+  #s-rest>*{max-width:none}
+  .rest-hero{height:44vh;min-height:360px}
+  .rest-hero img{transform:scale(1.06)}
+  .rest-hero .hero-scrim{background:linear-gradient(180deg,transparent 30%,color-mix(in srgb,var(--bg) 88%,transparent) 92%)}
+  .rest-body{
+    max-width:1160px;margin:-72px auto 0;position:relative;z-index:2;
+    display:grid;grid-template-columns:1.6fr 1fr;gap:28px;align-items:start;
+    padding:0 clamp(28px,4.5vw,72px) 40px;
+  }
+  .rest-body>.rest-main{display:flex;flex-direction:column;gap:18px}
+  .rest-body .menu-sec .hscroll{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+
+  /* ================= DISH CUSTOMIZE ================= */
+  #s-dish .dish-wrap{
+    display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);
+    max-width:1160px;margin:0 auto;padding:34px clamp(28px,4.5vw,72px) 40px;align-items:start;
+  }
+  #s-dish .dish-media{height:52vh;min-height:400px;border-radius:32px}
+  #s-dish .dish-body{padding-top:8px}
+
+  /* ================= CART ================= */
+  #s-cart .cart-wrap{
+    display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(24px,3.5vw,48px);
+    max-width:1160px;margin:0 auto;align-items:start;padding-top:28px;
+  }
+  #s-cart .cta-dock{
+    position:static;transform:none;max-width:1160px;margin:18px auto 0;
+    animation:none;
+  }
+  #s-cart .cta-dock .btn{width:auto;min-width:320px;margin-left:auto}
+  .plate-scene{margin:0 auto}
+
+  /* ================= CHECKOUT ================= */
+  #s-checkout .co-wrap{
+    display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,3.5vw,48px);
+    max-width:1160px;margin:0 auto;padding-top:28px;align-items:start;
+  }
+  #s-checkout .cta-dock{position:static;transform:none;animation:none;max-width:1160px;margin:18px auto 0}
+  #s-checkout .cta-dock .btn{width:auto;min-width:320px;margin-left:auto}
+
+  /* ================= SUCCESS ================= */
+  #s-success.center-screen{display:grid;place-items:center}
+  #s-success .success-wrap{max-width:520px}
+
+  /* ================= TRACKING ================= */
+  #s-track.map-screen{padding:0!important}
+  #s-track .streets{width:100%;height:100%}
+  #s-track .track-card{
+    left:calc(var(--sbw) + clamp(28px,4.5vw,72px));right:auto;bottom:36px;
+    width:min(430px,38vw);
+  }
+  #s-track .track-head{cursor:default}
+
+  /* ================= CHAT ================= */
+  #s-chat .chat-wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;height:100%}
+  #s-chat .chat-body{flex:1}
+  #s-chat .chat-input{max-width:860px;margin:0 auto}
+
+  /* ================= HISTORY / FAVS / REWARDS / PROFILE ================= */
+  #s-history .order-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
+  #s-favs .grid2{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:16px}
+  #s-rewards .rewards-wrap{max-width:880px;margin:0 auto}
+  #s-rewards .coupon{padding:26px 28px}
+  #s-rate .rate-wrap{max-width:720px;margin:0 auto;padding-top:34px}
+  #s-profile .prof-wrap{max-width:880px;margin:0 auto}
+  #s-profile .prof-head{padding-top:34px}
+  #s-notifs .notif-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:14px}
+
+  /* ================= ONBOARDING / AUTH / OTP ================= */
+  #s-onb .onb-track{max-width:none}
+  #s-onb .onb-slide{grid-template-columns:1.25fr 1fr;align-items:center;gap:0;min-height:100vh}
+  #s-onb .onb-art{height:100vh;min-height:100vh;border-radius:0}
+  #s-onb .onb-copy{padding:0 clamp(48px,7vw,110px)}
+  #s-onb .onb-copy h1{font-size:clamp(40px,4.6vw,64px)}
+  #s-onb .onb-copy .sub{font-size:17px;max-width:44ch}
+  #s-onb .onb-foot{
+    position:fixed;left:calc(var(--sbw) + clamp(48px,7vw,110px));right:auto;bottom:44px;
+    width:min(420px,36vw);margin:0;align-items:flex-start;
+  }
+  #s-auth .auth-wrap,#s-otp .auth-wrap{max-width:440px;padding-top:9vh}
+
+  /* ================= LOCATION ================= */
+  #s-loc .loc-map{height:100%}
+  #s-loc .loc-card{
+    left:calc(var(--sbw) + clamp(28px,4.5vw,72px));right:auto;
+    width:min(460px,40vw);
+  }
+
+  /* ================= STATES / SYSTEM (showcase) ================= */
+  #s-states .states-wrap,#s-system .system-wrap{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px;align-items:start}
+  #s-states .states-wrap>*,#s-system .system-wrap>*{break-inside:avoid}
+  #s-system .swatches{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}
+
+  /* ================= STATES GALLERY list ================= */
+  .state-list{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+  /* motion polish: hover lifts on desktop pointers */
+  @media (hover:hover){
+    .rest-card,.dish-card,.order-card,.usual-row,.addr-card,.coupon{transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+    .rest-card:hover,.dish-card:hover,.order-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(0,0,0,.28)}
+    .usual-row:hover{transform:translateY(-2px)}
+  }
+}
+
+/* ultra-wide: cap reading column harder */
+@media (min-width:1800px){
+  .screen>*{max-width:1280px}
+  :root{--sbw:268px}
+}

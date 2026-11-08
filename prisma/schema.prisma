@@ -1,0 +1,77 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  orders    Order[]
+}
+
+model Restaurant {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  tagline     String
+  cuisines    String // comma-separated
+  rating      Float
+  ratingCount Int
+  etaMin      Int
+  etaMax      Int
+  distance    Float
+  fee         Int
+  costForTwo  Int
+  pureVeg     Boolean  @default(false)
+  promoted    Boolean  @default(false)
+  image       String
+  moods       String @default("") // comma-separated mood tags
+  dishes      Dish[]
+  orders      Order[]
+}
+
+model Dish {
+  id           String     @id @default(cuid())
+  restaurantId String
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  name         String
+  desc         String
+  price        Int
+  rating       Float
+  section      String // menu section: Bestsellers, Mains, Desserts...
+  veg          Boolean    @default(false)
+  spice        Int        @default(0) // 0..3
+  kcal         Int?
+  prepMin      Int        @default(15)
+  image        String
+  bestseller   Boolean    @default(false)
+}
+
+model Order {
+  id           String     @id @default(cuid())
+  code         String     @unique
+  userId       String?
+  user         User?      @relation(fields: [userId], references: [id])
+  restaurantId String
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  email        String?
+  items        String // JSON [{id,name,price,qty,opts[],note}]
+  subtotal     Int
+  delivery     Int
+  taxes        Int
+  discount     Int
+  total        Int
+  coupon       String?
+  address      String
+  payment      String   @default("upi")
+  status       String   @default("placed") // placed|confirmed|cooking|picked|delivered
+  eta          Int      @default(32)
+  createdAt    DateTime @default(now())
+}

@@ -36,10 +36,15 @@ A full-stack, production-grade food delivery web application: mood-led discovery
 ## 🚀 Run it
 
 ```bash
-bun install            # or npm install / pnpm install
-bun run db:push        # create SQLite schema
-bun run scripts/seed.ts  # 6 kitchens, 17 dishes (local AI-generated food photography)
-bun run dev            # http://localhost:3000
+npm install
+npm run dev            # → http://localhost:3000
+```
+
+A ready `.env` and a **pre-seeded SQLite database** (`db/custom.db`) are included — zero setup. To rebuild the database from scratch instead:
+
+```bash
+npm run db:push        # create SQLite schema
+npm run db:seed        # 6 kitchens, 17 dishes (local AI-generated food photography)
 ```
 
 Environment: `DATABASE_URL=file:./db/custom.db` (`.env`).
